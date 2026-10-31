@@ -1,0 +1,4 @@
+---
+const {number,title,description,id}=Astro.props;
+---
+<article class="service" id={id}><span class="index">{number}</span><h3>{title}</h3><p>{description}</p><a href={`${import.meta.env.BASE_URL}services/#${id}`} aria-label={`Explore ${title.toLowerCase()}`}>Explore services <span aria-hidden="true">↗</span></a></article>
