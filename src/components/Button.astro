@@ -1,0 +1,4 @@
+---
+const {href,outline=false}=Astro.props;
+---
+<a class:list={['button',{outline}]} href={href}><slot/><span aria-hidden="true">↗</span></a>
