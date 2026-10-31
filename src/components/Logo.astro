@@ -1,0 +1,8 @@
+---
+import primary from '../../assets/logos/Logos_OddPhoenix_Primary_LightBG_Alt.png';
+import phoenix from '../../assets/logos/Logos_OddPhoenix_Submark_PhoenixOnly.png';
+const {decorative=false}=Astro.props;
+// Frame only transparent canvas padding. All visible original artwork is retained;
+// the original files, proportions and colors remain untouched.
+---
+<svg xmlns="http://www.w3.org/2000/svg" viewBox={decorative?'469 168 712 1314':'321 611 952 428'} class:list={['brand-logo',{'watermark-logo':decorative}]} role={decorative?undefined:'img'} aria-label={decorative?undefined:'The Odd Phoenix Creative Company'} aria-hidden={decorative?'true':undefined} focusable="false"><image href={decorative?phoenix.src:primary.src} x="0" y="0" width="1650" height="1650"/></svg>

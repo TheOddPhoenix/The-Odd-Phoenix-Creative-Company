@@ -1,6 +1,6 @@
 # Odd Phoenix Creative Company
 
-Astro static website for GitHub Pages and https://theoddphoenix.com. Original repository logo assets are preserved unchanged. Homepage direction approved October 31, 2026; wording can be refined after the framework.
+Astro static website for GitHub Pages and https://theoddphoenix.com. Original repository logo assets are preserved unchanged. Homepage redesigned October 31, 2026: Your story, your way; original transparent header logo and decorative phoenix watermark; larger typography; grouped service lists; founder credibility and inquiry form on the homepage.
 
 ## Run and build
 
@@ -13,7 +13,7 @@ Use Node.js 22.12+ (or a supported newer LTS), then npm ci, npm run dev, and npm
 - Brand tokens and responsive styles: src/styles/global.css. Georgia and Arial need no remote fonts.
 - Shared UI: src/components/.
 - Service summaries and full lists: src/data/services.js and service-details.js.
-- Portfolio content: src/data/projects.js; docs/project-template.md describes approved content requirements. Projects are still pending; portfolio is noindex and excluded from the sitemap until real content is published.
+- Portfolio content: src/data/projects.js; docs/project-template.md describes approved content requirements. Projects are still pending; portfolio is noindex and excluded from the sitemap until real content is published. Placeholder cards and Portfolio navigation are hidden from the homepage.
 - Original artwork: assets/logos/. Keep white/light backgrounds, original colors, and proportions.
 
 ## Search visibility
@@ -26,8 +26,11 @@ The full accessible inquiry form is implemented but disabled until configured. N
 
 ## Deployment and domain
 
-See docs/domain-setup.md for exact Spaceship DNS records, GitHub Pages domain binding, HTTPS, and Search Console steps. The manual .github/workflows/pages.yml builds and deploys dist/. Source uses repository variables SITE_BASE (default /), PUBLIC_FORM_ENDPOINT, and PUBLIC_SITE_PREVIEW. The domain is not yet connected and deployment has not been verified. GitHub Actions custom domains use the Pages setting; no CNAME file is required.
+See docs/domain-setup.md for exact Spaceship DNS records, GitHub Pages domain binding, HTTPS, and Search Console steps. The manual .github/workflows/pages.yml builds and deploys dist/. Source uses repository variables SITE_BASE (default /), PUBLIC_FORM_ENDPOINT, and PUBLIC_SITE_PREVIEW. The domain is connected to GitHub Pages with HTTPS enforced and ownership verified. GitHub Actions custom domains use the Pages setting; no CNAME file is required.
 
 ## Outstanding
 
 Full brand guide, approved icons and portfolio content, confirmation of photography availability, receiving email/Formspree endpoint, Spaceship DNS setup, Pages activation, HTTPS and delivery verification. No e-commerce, pricing packages, invented projects, or testimonials are included.
+
+
+Logo.astro frames transparent canvas padding without altering visible artwork or the source PNG files. InquiryForm.astro is shared by the homepage and /contact/. Header navigation targets homepage sections. Copyright is The Odd Phoenix LLC. All 83 services remain in the HTML, with supplemental service entries exposed through native details controls. Optional inquiry fields are collapsed. Form delivery still needs PUBLIC_FORM_ENDPOINT.
