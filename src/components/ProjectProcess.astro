@@ -1,0 +1,5 @@
+---
+const steps=[['Tell us what you need','Share your goals, what you already have, and any timing or budget considerations. A finished brief is optional.'],['Agree on the scope','We discuss the deliverables, schedule, review rounds, and price. You approve the proposal before work begins.'],['Create and review','We develop the agreed work and gather your feedback at the planned review points.'],['Deliver and hand off','You receive the agreed files or completed work, with handoff details suited to your project.']];
+const {id='project-process-title'}=Astro.props;
+---
+<section class="project-process texture" aria-labelledby={id}><div class="wrap"><div class="guidance-heading"><h2 id={id}>How we work</h2><p>Clear scope. Agreed expectations. A conversation at each important step.</p></div><ol>{steps.map(([title,copy])=><li><h3>{title}</h3><p>{copy}</p></li>)}</ol><p class="scope-note">Every quote is tailored to the project. If the scope changes, we discuss the effect on cost and timing before proceeding.</p></div></section>

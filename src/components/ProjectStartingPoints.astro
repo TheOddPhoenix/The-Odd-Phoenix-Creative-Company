@@ -1,0 +1,10 @@
+---
+const base=import.meta.env.BASE_URL;
+const paths=[
+ {title:'Build or refresh a brand',copy:'Start with your identity, logo, or the materials people see first.',service:'design',link:'Explore branding & design'},
+ {title:'Improve what you already have',copy:'Get support with a draft, existing copy, or content that needs a clearer voice.',service:'writing',link:'Explore writing & editing'},
+ {title:'Communicate a project',copy:'Connect the message, plan, and moving parts of a launch or initiative.',service:'communications',link:'Explore communications'},
+ {title:'Open or improve an online store',copy:'Bring your storefront, product listings, and launch details together.',service:'commerce',link:'Explore e-commerce'}
+];
+---
+<section class="project-start texture" aria-labelledby="project-start-title"><div class="wrap"><div class="guidance-heading"><div><p class="eyebrow">Find your starting point</p><h2 id="project-start-title">What are you<br/><em>working on?</em></h2></div><p>You can bring one task or a connected project. Here are a few ways to start.</p></div><div class="project-paths">{paths.map(p=><article><h3>{p.title}</h3><p>{p.copy}</p><a href={base+'services/#'+p.service}>{p.link} <span aria-hidden="true">↗</span></a></article>)}</div><p class="starting-point-help">Not sure which service fits? <a href={base+'contact/'}>Tell us about your project.</a></p></div></section>
