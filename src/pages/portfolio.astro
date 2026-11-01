@@ -1,6 +1,5 @@
 ---
 import SiteLayout from '../layouts/SiteLayout.astro';
-import PageHeader from '../components/PageHeader.astro';
-import {projects,categories} from '../data/projects.js';
+const base=import.meta.env.BASE_URL;
 ---
-<SiteLayout title="Creative Portfolio" description="Explore the creative disciplines behind Odd Phoenix Creative Company: writing, graphic design, photography, video, digital content, and communications." noindex={projects.length===0}><PageHeader eyebrow="THE WORK" title="PORTFOLIO" description="A space for the stories, designs, and ideas behind the studio. Approved project selections are being prepared."/><section class="wrap section"><h2>SELECTED PROJECTS</h2><p>Portfolio projects will be added here as they are approved for publication.</p><ul class="category-list" aria-label="Portfolio disciplines">{categories.map(c=><li>{c}</li>)}</ul><p>No client work or case studies are represented by these placeholders.</p></section></SiteLayout>
+<SiteLayout title="Explore The Lab" description="Explore original ventures developed under The Odd Phoenix." noindex><section class="wrap section"><h1>The work is<br/>taking shape.</h1><p>Original ventures now live in The Lab.</p><a class="button" href={base+'lab/'}>Explore The Lab ↗</a></section></SiteLayout>
