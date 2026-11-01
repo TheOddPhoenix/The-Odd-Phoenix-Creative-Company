@@ -1,0 +1,10 @@
+import {offerings} from './service-details.js';
+export const studioServices=[
+{id:'communications',title:'Strategy & communications',heading:'Strategic Communications & Public Relations',image:'strategy',description:'Communications planning, public relations, messaging, and project coordination that keep people and ideas moving in the same direction.',items:offerings[3]},
+{id:'writing',title:'Writing & editorial',heading:'Writing & Editorial',image:'editorial',description:'Website copywriting, articles, proofreading, copyediting, and AI content editing. Clear words, an authentic voice, and a point worth making.',items:offerings[0]},
+{id:'design',title:'Branding & design',heading:'Branding & Graphic Design',image:'branding',description:'Logo cleanup, brand identity, flyers, Canva templates, and presentation design. A consistent identity with practical materials to match.',items:offerings[1]},
+{id:'photography',title:'Photography & video',heading:'Photography & Video',image:'photography',description:'Business imagery, editorial photography, product photography, and video editing. Availability and location are discussed during consultation.',items:offerings[2]},
+{id:'digital',title:'Digital & social',heading:'Digital & Social Media',image:'digital',description:'Social media content creation, branded graphics, copy, and content calendars built around what you want to communicate.',items:offerings[4]},
+{id:'commerce',title:'E-commerce & online stores',heading:'E-Commerce & Online Stores',image:'commerce',description:'Online storefronts, organized product catalogs, and a coherent path from shop setup to launch.',items:['Shopify setup','Etsy shop setup','Online store development','Product listings','Product descriptions','Product photography','Product catalog organization','Print-on-demand integrations','Storefront branding','Store launch support']},
+{id:'websites',title:'Web & content development',heading:'Web & Content Development',image:'digital',description:'Small-business website design, WordPress, website redesign, on-page SEO, and content development. Make your online presence easier to understand and use.',items:offerings[5]}
+];

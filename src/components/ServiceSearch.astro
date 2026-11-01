@@ -1,16 +1,7 @@
 ---
-import {services} from '../data/services.js';
-import {offerings} from '../data/service-details.js';
-const aliases=[
-  'copy editing proof reading spell check grammar editor AI editing resume bio article blog text words',
-  'fix my logo blurry logo vector vectorize refresh redesign branding identity powerpoint slides pitch deck presentation flyer leaflet poster Canva template graphic designer',
-  'photos photographer headshot portraits pictures retouch film videographer reels video production',
-  'PR publicity media relations press release communications strategy project management coordination planning',
-  'instagram facebook linkedin posts captions content creator social media calendar campaign',
-  'web developer web design wordpress shopify landing page search engine optimization SEO copywriting website refresh'
-];
-const synonymGroups=[[/proof|copyedit|document editing/i,'proof reading copy editing spell check grammar editor'],[/logo/i,'fix my logo blurry logo vector vectorize refresh logo redesign'],[/presentation/i,'PowerPoint slides pitch deck slideshow'],[/flyer|poster|brochure/i,'leaflet handout promotional print'],[/AI-generated/i,'AI content editing artificial intelligence humanize'],[/website copy|SEO-friendly/i,'SEO copywriting website text'],[/press release|public relations/i,'PR publicity media relations'],[/photography|headshot|portrait/i,'photos photographer pictures'],[/video/i,'film reels videographer'],[/social media|content calendar/i,'instagram facebook linkedin posts captions content creator'],[/project/i,'project management coordination planning']];
-const catalog=services.flatMap((category,i)=>offerings[i].map(name=>({name,category:category.title,href:import.meta.env.BASE_URL+'services/#'+category.id,terms:name+' '+category.title+' '+synonymGroups.filter(([pattern])=>(pattern as RegExp).test(name)).map(([,terms])=>terms).join(' ')})));
+import {studioServices} from '../data/studio-services.js';
+const synonymGroups=[[/Shopify|Etsy|store|catalog|print-on-demand/i,'ecommerce e commerce web shop webshop shopping cart online retail POD shop setup'],[/proof|copyedit|document editing/i,'proof reading copy editing spell check grammar editor'],[/logo/i,'fix my logo blurry logo vector vectorize refresh logo redesign'],[/presentation/i,'PowerPoint slides pitch deck slideshow'],[/flyer|poster|brochure/i,'leaflet handout promotional print'],[/AI-generated/i,'AI content editing artificial intelligence humanize'],[/website copy|SEO-friendly/i,'SEO copywriting website text'],[/press release|public relations/i,'PR publicity media relations'],[/photography|headshot|portrait/i,'photos photographer pictures'],[/video/i,'film reels videographer'],[/social media|content calendar/i,'instagram facebook linkedin posts captions content creator'],[/project/i,'project management coordination planning']];
+const catalog=studioServices.flatMap((category)=>category.items.map(name=>({name,category:category.title,href:import.meta.env.BASE_URL+'services/#'+category.id,terms:name+' '+category.title+' '+synonymGroups.filter(([pattern])=>(pattern as RegExp).test(name)).map(([,terms])=>terms).join(' ')})));
 ---
 <section class="service-search" aria-label="Find a service" data-catalog={JSON.stringify(catalog)}>
   <label for="service-query">Search for a service</label>
@@ -28,7 +19,7 @@ for(const region of document.querySelectorAll<HTMLElement>('.service-search')){
  const update=()=>{const query=normalize(input.value);results.replaceChildren();results.hidden=!query;if(!query){status.textContent='';return;}
  const tokens=query.split(' ').filter(t=>!['a','an','the','my','for','and','service','services','help','with'].includes(t));
  const matches=catalog.map(item=>({item,score:tokens.reduce((n,t)=>n+(normalize(item.name).includes(t)?4:normalize(item.terms).includes(t)?1:0),0),match:tokens.every(t=>normalize(item.terms).includes(t))})).filter(x=>tokens.length&&x.match).sort((a,b)=>b.score-a.score).slice(0,12);
- status.textContent=matches.length?`${matches.length} matching services${matches.length===12?' (showing the closest matches)':''}.`:'No matching services. Try a shorter phrase or contact us to discuss your project.';
+ status.textContent=matches.length?`${matches.length} matching service${matches.length===1?'':'s'}${matches.length===12?' (showing the closest matches)':''}.`:'No matching services. Try a shorter phrase or contact us to discuss your project.';
  for(const {item} of matches){const li=document.createElement('li'),link=document.createElement('a'),small=document.createElement('small');link.href=item.href;link.textContent=item.name;small.textContent=item.category;link.append(small);li.append(link);results.append(li);}};
  input.addEventListener('input',update);clear?.addEventListener('click',()=>{input.value='';update();input.focus();});
 }

@@ -1,6 +1,7 @@
 ---
-import Logo from './Logo.astro';
 const base=import.meta.env.BASE_URL;
-const pages=[['Services','services'],['About','about'],['Contact','contact']];
+const pages=[['Home',''],['Services','services/'],['About','about/'],['The Lab','lab/'],['Contact','contact/']];
+const current=Astro.url.pathname;
 ---
-<header class="site-header wrap"><a class="logo-link" href={base} aria-label="The Odd Phoenix Creative Company — home"><Logo/></a><nav aria-label="Main navigation">{pages.map(([label,id])=><a class:list={{'nav-cta':id==='contact'}} href={`${base}#${id}`}>{id==='contact'?'Discuss your project':label}</a>)}</nav></header>
+<header class="site-header"><div class="header-inner"><a class="wordmark" href={base} aria-label="The Odd Phoenix — home"><span>THE ODD</span><strong>PHOENIX</strong></a><p class="brand-descriptor">STRATEGIC<br/>COMMUNICATIONS &amp;<br/>CREATIVE SERVICES</p><button class="menu-toggle" aria-expanded="false" aria-controls="main-navigation">Menu <span aria-hidden="true">☰</span></button><nav id="main-navigation" aria-label="Main navigation">{pages.map(([label,route])=><a href={base+route} aria-current={current===base+route?'page':undefined}>{label}</a>)}</nav><a class="button header-cta" href={base+'contact/'}>Let’s talk <span aria-hidden="true">↗</span></a></div></header>
+<script>const toggle=document.querySelector('.menu-toggle'),nav=document.querySelector('#main-navigation');if(toggle instanceof HTMLButtonElement&&nav instanceof HTMLElement){toggle.addEventListener('click',()=>{const open=toggle.getAttribute('aria-expanded')!=='true';toggle.setAttribute('aria-expanded',String(open));nav.classList.toggle('is-open',open);});document.addEventListener('keydown',event=>{if(event.key==='Escape'&&toggle.getAttribute('aria-expanded')==='true'){toggle.setAttribute('aria-expanded','false');nav.classList.remove('is-open');toggle.focus();}});}</script>

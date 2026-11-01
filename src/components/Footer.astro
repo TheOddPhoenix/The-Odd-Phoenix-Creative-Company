@@ -1,1 +1,4 @@
-<footer class="wrap"><p>© {new Date().getFullYear()} The Odd Phoenix LLC</p><a href="#home">Back to top ↑</a></footer>
+---
+const base=import.meta.env.BASE_URL;
+---
+<footer class="site-footer wrap"><p>© {new Date().getFullYear()} The Odd Phoenix LLC</p><a href="mailto:theoddphoenix@outlook.com">theoddphoenix@outlook.com</a><a href={base+'contact/'}>Start a conversation ↗</a></footer>
